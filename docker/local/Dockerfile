@@ -33,14 +33,24 @@ COPY --from=node-build-stage /node_modules ./node_modules
 COPY . ${APP_HOME}
 
 # Création du groupe et de l'utilisateur 'nextjs'
-RUN addgroup -g 1001 -S nodejs && \
-  adduser -S nextjs -u 1001 -G nodejs
+#RUN addgroup -g 1001 -S nodejs && \
+#  adduser -S nextjs -u 1001 -G nodejs
+
+RUN mkdir -p ${APP_HOME}/.next && \
+    mkdir -p ${APP_HOME}/.next/cache && \
+    mkdir -p ${APP_HOME}/.next/server && \
+    chown -R node:node ${APP_HOME} && \
+    chmod -R 755 ${APP_HOME}
+
+USER node
+
 
 # Changement de propriétaire des fichiers de l'application
-RUN chown -R nextjs:nodejs ${APP_HOME}
+#RUN chown -R nextjs:nodejs ${APP_HOME}
+
 
 # Définition de l'utilisateur 'nextjs' comme utilisateur par défaut
-USER nextjs
+#USER nextjs
 
 # Commande par défaut pour exécuter l'application
 CMD [ "npm","run","dev" ]
