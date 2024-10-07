@@ -21,6 +21,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "../../../Users/Legion/AppData/Local/JetBrains/PyCharm2022.2/javascript/typings/node/20.14.0/node_modules/@types/node/globals.d.ts"
+  ],
   "exclude": ["node_modules"]
 }
