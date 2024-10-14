@@ -2,6 +2,7 @@
 // import Navbar from "@/components/shared/navbar/Navbar";
 // import RightNavbar from "@/components/shared/navbar/RightNavbar";
 import React from "react";
+import Navbar from "@/components/shared/navbar/Navbar";
 
 interface LayoutProps {
 	children: React.ReactNode;
@@ -10,7 +11,7 @@ interface LayoutProps {
 export default function layout({ children }: LayoutProps) {
 	return (
 		<main className="bg-baby_veryBlack relative">
-			<h2 className="text-3xl dark:text-pumpkin">Navbar</h2>
+			<Navbar/>
 			<div className="flex">
 				{/* Left Navbar*/}
 				<div className="dark:text--pumpkin hidden text-xl md:block ">
