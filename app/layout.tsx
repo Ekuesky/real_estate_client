@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import React from "react"
 import { openSans, robotoSlab } from "@/lib/fonts";
+import { ThemeProvider } from "@/components/theme-provider";
 
 
 export const metadata: Metadata = {
@@ -14,7 +15,10 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={`${openSans.variable} ${robotoSlab.variable} antialiased`}>
-                {children}
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionChange>
+              {children}
+            </ThemeProvider>
+
             </body>
         </html>
     );
