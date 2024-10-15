@@ -1,5 +1,6 @@
 import { HomeModernIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import ThemeSwitcher from "@/components/shared/navbar/ThemeSwitcher";
 
 export default function Navbar() {
 	return (
@@ -13,9 +14,10 @@ export default function Navbar() {
 
 			<div className="flex items-center gap-4 sm:gap-6 lg:gap-8">
 				{/* Theme Switcher placeholder*/}
-				<div className="dark:text-pumpkin text-lg sm:block sm:text-xl">
-					Theme Switcher
-			  </div>
+				{/*<div className="dark:text-pumpkin text-lg sm:block sm:text-xl">*/}
+				{/*	Theme Switcher*/}
+			  {/*</div>*/}
+				<ThemeSwitcher />
 				{/* Mobile Navbar */}
 				<div className="dark:text-pumpkin text-lg sm:text-xl">
 					Mobile NavBar
