@@ -16,7 +16,7 @@ export default function LeftNavbar() {
     // Main container for the left navbar
     <section className="bg-baby_rich light-border custom-scrollbar shadow-platinum sticky left-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-r p-6 pt-36 max-sm:hidden lg:w-[297px] dark:shadow-none">
       {/* Container for navigation links */}
-      <div className="flex flex-1 flex-col gap-6">
+      <div className="flex flex-1 flex-col gap-1">
         {/* Map through the navigation links */}
         {leftNavLinks.map((linkItem) => {
           // Determine if the current link is active
