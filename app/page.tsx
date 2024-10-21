@@ -20,15 +20,15 @@ export default function HomePage() {
 			</div>
 			<main className="flex-center relative z-10 h-full bg-black/40 ">
 				<div className="text-center">
-					<h1 className="font-robotoSlab mb-4 text-3xl font-semibold text-sky-800 antialiased sm:text-6xl md:text-8xl">
+					<h1 className="font-robotoSlab mb-4 text-3xl font-semibold text-emerald-500 antialiased sm:text-6xl md:text-8xl">
 						Welcome to the real estate
 					</h1>
-					<p className="my-8 text-2xl text-orange-500 sm:text-4xl">
+					<p className="my-8 text-2xl text-zinc-100 sm:text-3xl">
 						Are you a tenant? Or an existing tenant?
 					</p>
 					<Link href="/register" prefetch={false}>
 						<button
-							className="bg-stone-700 rounded-3xl px-4 py-2 text-lg font-semibold text-white hover:bg-orange-400 sm:px-6 sm:text-2xl">
+							className="bg-stone-700 rounded-3xl px-4 py-2 text-lg font-semibold text-white hover:bg-orange-400 sm:px-6 sm:text-1xl">
 							<span className="inline-flex items-center">
 								Create Your Account
 									<ArrowRightIcon className="ml-2 size-6" />

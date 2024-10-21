@@ -1,18 +1,29 @@
-import {configureStore} from "@reduxjs/toolkit";
-import {setupListeners} from "@reduxjs/toolkit/query";
+import { configureStore } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { rootReducer } from "@/lib/redux/features/rootReducer";
+import { baseApiSlice } from "@/lib/redux/features/api/baseApiSlice";
 
+// Définition de la fonction makeStore pour créer le store
 export const makeStore = () => {
-	return configureStore(
-		{
-      reducer: {},
-    }
-	)
-}
+  const store = configureStore({
+		// Configuration du reducer principal pour le store
+    reducer: rootReducer,
+		// Configuration du middleware
+    middleware: (getDefaultMiddleware) =>
+			 // Ajout du middleware de la slice API aux middlewares par défaut
+      getDefaultMiddleware().concat(baseApiSlice.middleware),
+		// Activation des Redux DevTools en mode développement
+    devTools: process.env.NODE_ENV === 'development',
+  });
+  // Setup listeners pour RTK Query
+  setupListeners(store.dispatch);
 
-// setupListeners(makeStore().dispatch);
+  return store;
+};
 
-// Define your root state type
-export type AppStore = ReturnType<typeof makeStore>
-export type RootState = ReturnType<AppStore["getState"]>
-export type AppDispatch = AppStore["dispatch"]
-
+// Définition du type AppStore comme le retour de la fonction makeStore
+export type AppStore = ReturnType<typeof makeStore>;
+// Définition du type RootState comme le retour de la méthode getState du store
+export type RootState = ReturnType<AppStore["getState"]>;
+// Définition du type AppDispatch comme la méthode dispatch du store
+export type AppDispatch = AppStore["dispatch"];

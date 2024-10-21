@@ -362,13 +362,13 @@ export interface Profile {
 	date_joined: string;
 	avatar?: string;
 	average_rating: number;
-	apartment: {
+	apartments: Array<{
 		id: string;
 		created_at: string;
 		unit_number: string;
 		building: string;
 		floor: number;
-	} | null;
+	}>| null;
 }
 
 export interface ProfilesResponse {

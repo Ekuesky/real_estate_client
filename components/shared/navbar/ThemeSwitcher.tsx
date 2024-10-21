@@ -27,13 +27,13 @@ function ThemeSwitcher() {
 			>
 				<Button size="icon">
 					<SunIcon
-						className={`size-[1.8rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 ${
+						className={`size-[1.5rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 ${
 							theme === "light" ? "text-pumpkin" : "text-gray-400"
 						}`}
 						suppressHydrationWarning
 					/>
 					<MoonIcon
-						className={`absolute size-[1.8rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 ${
+						className={`absolute size-[1.5rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 ${
 							theme === "light" ? "text-blue-400" : "text-gray-400"
 						}`}
 						suppressHydrationWarning
