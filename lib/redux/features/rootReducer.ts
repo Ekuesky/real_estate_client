@@ -1,7 +1,7 @@
-import { baseApiSlice } from "@/lib/redux/features/api/baseApiSlice";
+import { baseApi } from "@/lib/redux/features/api/baseApi";
 import authReducer from "@/lib/redux/features/auth/authSlice"
 
 export const rootReducer = {
-	[baseApiSlice.reducerPath]: baseApiSlice.reducer,
+	[baseApi.reducerPath]: baseApi.reducer,
 	auth: authReducer,
 };

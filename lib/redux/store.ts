@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { rootReducer } from "@/lib/redux/features/rootReducer";
-import { baseApiSlice } from "@/lib/redux/features/api/baseApiSlice";
+import { baseApi } from "@/lib/redux/features/api/baseApi";
 
 // Définition de la fonction makeStore pour créer le store
 export const makeStore = () => {
@@ -11,7 +11,7 @@ export const makeStore = () => {
 		// Configuration du middleware
     middleware: (getDefaultMiddleware) =>
 			 // Ajout du middleware de la slice API aux middlewares par défaut
-      getDefaultMiddleware().concat(baseApiSlice.middleware),
+      getDefaultMiddleware().concat(baseApi.middleware),
 		// Activation des Redux DevTools en mode développement
     devTools: process.env.NODE_ENV === 'development',
   });

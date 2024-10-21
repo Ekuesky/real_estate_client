@@ -1,4 +1,4 @@
-import { baseApiSlice } from "@/lib/redux/features/api/baseApiSlice";
+import { baseApi } from "@/lib/redux/features/api/baseApi";
 import {
 	ActivateUserData,
 	LoginResponse,
@@ -13,7 +13,7 @@ import {
 } from "@/types";
 
 // Extension de baseApiSlice avec injectEndpoints
-export const authApiSlice = baseApiSlice.injectEndpoints({
+export const authApi = baseApi.injectEndpoints({
 	endpoints: (builder) => ({
 		registerUser: builder.mutation<RegisterUserResponse, RegisterUserData>({
 			query: (userData) => ({
@@ -88,4 +88,4 @@ export const {
 	useResetPasswordConfirmMutation,
 	useResetPasswordRequestMutation,
 	useRefreshJWTMutation,
-} = authApiSlice;
+} = authApi;

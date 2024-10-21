@@ -5,7 +5,7 @@ const baseQuery = fetchBaseQuery({
 	credentials: "include" // Inclut les cookies dans les requêtes
 });
 
-export const baseApiSlice = createApi({
+export const baseApi = createApi({
 	reducerPath: "api",
 	baseQuery: baseQuery,
 	endpoints: (builder) => ({}),
