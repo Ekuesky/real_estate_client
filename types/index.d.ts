@@ -362,7 +362,7 @@ export interface Profile {
 	date_joined: string;
 	avatar?: string;
 	average_rating: number;
-	apartments: Array<{
+	apartments?: Array<{
 		id: string;
 		created_at: string;
 		unit_number: string;
