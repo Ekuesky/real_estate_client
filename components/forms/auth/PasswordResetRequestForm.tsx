@@ -45,7 +45,7 @@ function PasswordResetRequestForm() {
           placeholder="Email Address"
           startIcon={<MailIcon className="dark:text-babyPowder size-8" />}
 				 />
-				<Button type="submit" className="h4-semibold bg-eerieBlack dark:bg-pumpkin w-full text-white">
+				<Button type="submit" className="h4-semibold bg-eerieBlack dark:bg-pumpkin w-full text-white" disabled={isLoading}>
 					{isLoading? <Spinner size="sm"/> : "Request password reset"}
 				</Button>
 

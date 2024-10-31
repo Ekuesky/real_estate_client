@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 	description: "Welcome to the real estate application",
 };
 
-function Page() {
+function ForgotPassword() {
 	return (
 		<div>
 			<AuthFormHeader
@@ -28,4 +28,4 @@ function Page() {
 	);
 }
 
-export default Page;
+export default ForgotPassword;
