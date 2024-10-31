@@ -1,1 +1,1 @@
-export {useAuthNavigation} from "./useAuthNavigation"
+export {useAuthNavigation} from "@/hooks/useAuthNavigation"

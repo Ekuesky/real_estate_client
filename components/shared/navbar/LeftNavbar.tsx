@@ -80,7 +80,7 @@ export default function LeftNavbar() {
 						</Link>
 						{/* Register button */}
 						<Link href="/register">
-							<Button className="electricIndigo-gradient small-medium light-border-2 btn-tertiary text-baby_ballon min-h-[41px] w-full rounded-lg border px-4 py-3 shadow-none">
+							<Button className="electricIndigo-gradient hover:bg-slate-500 small-medium light-border-2 btn-tertiary text-baby_ballon min-h-[41px] w-full rounded-lg border px-4 py-3 shadow-none">
 								Register
 							</Button>
 						</Link>

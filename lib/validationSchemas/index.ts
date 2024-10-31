@@ -1,11 +1,11 @@
-export { LoginUserSchema } from "./LoginSchema"
-export {TLoginUserSchema} from "./LoginSchema"
+export { LoginUserSchema } from "@/lib/validationSchemas/LoginSchema"
+export {TLoginUserSchema} from "@/lib/validationSchemas/LoginSchema"
 
-export {PasswordResetRequestSchema} from "./PasswordResetRequestSchema"
-export {TPasswordResetRequestSchema} from "./PasswordResetRequestSchema"
+export {PasswordResetRequestSchema} from "@/lib/validationSchemas/PasswordResetRequestSchema"
+export {TPasswordResetRequestSchema} from "@/lib/validationSchemas/PasswordResetRequestSchema"
 
-export {PasswordResetConfirmSchema} from "./PasswordResetConfirmSchema"
-export {TPasswordResetConfirmSchema} from "./PasswordResetConfirmSchema"
+export {PasswordResetConfirmSchema} from "@/lib/validationSchemas/PasswordResetConfirmSchema"
+export {TPasswordResetConfirmSchema} from "@/lib/validationSchemas/PasswordResetConfirmSchema"
 
-export {RegisterUserSchema} from "./RegisterSchema"
-export {TRegisterUserSchema} from "./RegisterSchema"
+export {RegisterUserSchema} from "@/lib/validationSchemas/RegisterSchema"
+export {TRegisterUserSchema} from "@/lib/validationSchemas/RegisterSchema"
