@@ -20,9 +20,11 @@ export function useAuthNavigation(){
 			router.push("/login")
 			toast.success("Logged out successfully")
 
-		}catch (e) {	}
-		const errorMessage = extractErrorMessage(e)
-		toast.error(errorMessage || "An error occurred")
+		}catch (error) {
+			 const errorMessage = extractErrorMessage(error)
+		   toast.error(errorMessage || "An error occurred")
+		}
+
   }
 
 	const filteredNavLinks = leftNavLinks.filter(navLink =>	{
