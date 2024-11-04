@@ -49,9 +49,8 @@ export default function RegisterForm() {
 			toast.success(
 				"An Email with an activation link has been sent to your email address. Please check your email and activate your account.",
 			);
-			//redirects to login page after successful registration
-			router.push("/login");
 			reset(); // Resets the form
+			router.push("/login"); // Redirects to login page after successful registration
 		} catch (e) {
 			// Handles errors during registration
 			const errorMessage = extractErrorMessage(e); // Extracts a user-friendly error message
