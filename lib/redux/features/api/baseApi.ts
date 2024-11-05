@@ -97,7 +97,7 @@ const baseQueryWithReauth: BaseQueryFn< string | FetchArgs, unknown,
 export const baseApi = createApi({
  reducerPath: "api", // Chemin du reducer dans le store Redux
  baseQuery: baseQueryWithReauth, // Utilisation de l'intercepteur personnalisé
- tagTypes: ["User", "Apartment", "Issue", "Report", "Post"], // Types de ressources pour le cache
+ tagTypes: ["User"], // Types de ressources pour le cache
  refetchOnFocus: true, // Rechargement des données quand l'application reprend le focus
  refetchOnMountOrArgChange: true, // Rechargement des données à la réinit ou changement d'arguments
  endpoints: (builder) => ({}),
