@@ -10,7 +10,7 @@ export default function TenantsPage(){
 if (isLoading) {
 	return (
 		<div className="flex-center pt-32">
-			<Spinner size="xl"/>
+			<Spinner size="lg"/>
 		</div>
 	)
 	}
