@@ -2,16 +2,17 @@
 import React from "react";
 import { useGetUserProfileQuery } from "@/lib/redux/features/users/usersApi";
 import Spinner from "@/components/shared/Spinner";
+import ProtectedRoute from "@/components/shared/ProtectedRoute";
 
-function ProfilePage() {
-
-	const {data, isLoading} = useGetUserProfileQuery()
+function ProfilePageContent() {
+	const { data, isLoading } = useGetUserProfileQuery();
 
 	if (isLoading) {
 		return (
 			<div className="flex-center pt-32">
-				<Spinner size="lg"/>
-			</div>)
+				<Spinner size="lg" />
+			</div>
+		);
 	}
 	return (
 		<div>
@@ -20,4 +21,12 @@ function ProfilePage() {
 	);
 }
 
-export default ProfilePage;
+export default function ProfilePage() {
+	return (
+
+			<ProtectedRoute>
+				<ProfilePageContent />
+			</ProtectedRoute>
+
+	);
+}
