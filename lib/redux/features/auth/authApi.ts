@@ -12,7 +12,7 @@ import {
 	UserResponse,
 } from "@/types";
 
-// Extension de baseApiSlice avec injectEndpoints
+// Extension de baseApi avec injectEndpoints
 export const authApi = baseApi.injectEndpoints({
 	endpoints: (builder) => ({
 		registerUser: builder.mutation<RegisterUserResponse, RegisterUserData>({

@@ -1,9 +1,26 @@
-import React from "react";
+"use client";
 
-export default function GoogleLoginPage(props) {
+import Spinner from "@/components/shared/Spinner";
+import { useSocialAuth } from "@/hooks";
+import { useSocialAuthenticationMutation } from "@/lib/redux/features/auth/authApi";
+import { Suspense } from "react";
+
+export default function GoogleLoginPage() {
 	return (
-		<div>
-			<h1 className="dark:text-pumpkin text-6xl">Google Login Page</h1>
-		</div>
+		<Suspense
+			fallback={
+				<div className="flex-center pt-32">
+					<Spinner size="lg" />
+				</div>
+			}
+		>
+			<GoogleLoginContent />
+		</Suspense>
 	);
+}
+
+function GoogleLoginContent() {
+	const [googleAuthenticate] = useSocialAuthenticationMutation();
+	useSocialAuth(googleAuthenticate, "google-oauth2");
+	return null;
 }

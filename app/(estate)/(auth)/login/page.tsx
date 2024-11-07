@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
 import LoginForm from "@/components/forms/auth/LoginForm";
 import { AuthFormHeader } from "@/components/forms/auth";
+import OauthButtons from "@/components/shared/OauthButttons";
+import useRedirectIfAuthenticated from "@/hooks/useRedirectIfAuthenticated";
 
 export default function LoginPage(props) {
+	useRedirectIfAuthenticated();
 	return (
 <div>
 			<AuthFormHeader
@@ -19,7 +23,7 @@ export default function LoginPage(props) {
 						<span className="dark:text-platinum px-2 text-sm">Or</span>
 						<div className="bg-richBlack dark:bg-platinum h-px flex-1"></div>
 					</div>
-
+					<OauthButtons />
 				</div>
 			</div>
 		</div>
