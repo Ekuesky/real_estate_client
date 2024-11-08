@@ -2,6 +2,7 @@ import { HomeModernIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import ThemeSwitcher from "@/components/shared/navbar/ThemeSwitcher";
 import MobileNavbar from "@/components/shared/navbar/MobileNavbar";
+import AuthAvatar from "@/components/shared/navbar/AuthAvatar";
 
 export default function Navbar() {
 	return (
@@ -23,6 +24,7 @@ export default function Navbar() {
 				{/*<div className="dark:text-pumpkin text-lg sm:text-xl">*/}
 				{/*	Mobile NavBar*/}
 			  {/*</div>*/}
+				<AuthAvatar />
 				<MobileNavbar/>
 			</div>
 

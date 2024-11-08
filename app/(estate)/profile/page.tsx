@@ -16,7 +16,7 @@ function ProfilePageContent() {
 	}
 	return (
 		<div>
-			<h1> {data?.profile.username}&apos;s Profile</h1>
+			<h1> {data?.profile.full_name}&apos;s Profile</h1>
 		</div>
 	);
 }

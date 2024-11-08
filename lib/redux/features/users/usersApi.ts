@@ -36,7 +36,7 @@ export const usersApi = baseApi.injectEndpoints({
 		}),
 
 		getUserProfile: builder.query<ProfileResponse,void>({
-			query: () => "/profile/user/me/",
+			query: () => "/profiles/user/me/",
       providesTags: ["User"],
 		}),
 
