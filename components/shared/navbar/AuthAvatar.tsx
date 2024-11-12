@@ -28,9 +28,9 @@ function AuthAvatar(props) {
 	return (
 		<div>
 			{profile && (
-				<DropdownMenu>
+				<DropdownMenu >
 					<DropdownMenuTrigger asChild>
-						<Avatar className="border-pumpkin cursor-pointer border-2">
+						<Avatar className="border-pumpkin cursor-pointer border-2 mr-3">
 							<AvatarImage alt="auth image" src={profile.avatar} />
 							<AvatarFallback>
 								<CircleUser className="dark:text-platinum size-8" />
