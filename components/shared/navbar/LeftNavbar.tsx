@@ -62,12 +62,13 @@ export default function LeftNavbar() {
 				isAuthenticated ? (
 					<div className="flex flex-col gap-3">
 						{/* Logout button */}
-						<Button
-							onClick={handleLogout}
-							className="lime-gradient small-medium light-border-2 btn-tertiary text-baby_ballon min-h-[41px] w-full rounded-lg border px-4 py-3 shadow-none"
-						>
-							Logout
-						</Button>
+						{/*<Button*/}
+						{/*	onClick={handleLogout}*/}
+						{/*	className="lime-gradient small-medium light-border-2 btn-tertiary text-baby_ballon min-h-[41px] w-full rounded-lg border px-4 py-3 shadow-none"*/}
+						{/*>*/}
+						{/*	Logout*/}
+						{/*</Button>*/}
+						<span className="dark:text-babyPowder text-sky-800"> Happy to see you again</span>
 					</div>
 				) :
 					(

@@ -1,8 +1,6 @@
-// @ts-ignore
 import type { Config } from "tailwindcss";
 
-// @ts-ignore
-const config = {
+const config : Config= {
 	darkMode: ["class"],
 	content: [
 		"./pages/**/*.{ts,tsx}",
@@ -26,11 +24,11 @@ const config = {
 				deepBlueGrey: "#263238",
 				gray: "rgba(125,144,201,0.34)",
 				lightGray: "#7B8EC8",
-				electricIndigo: "#6610F2",
+				electricIndigo: "rgb(31,2,56)",
 				richBlack: "#0D1317",
 				veryBlack: "#000000",
 				babyPowder: "#FBFEF9",
-				pumpkin: "#F17105",
+				pumpkin: "rgb(164,140,6)",
 				platinum: "#DDE1E4",
 				lightGrey: "#EEEEEE",
 				pear: "#C2E812",
@@ -59,6 +57,6 @@ const config = {
 		},
 	},
 	plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+} ;
 
 export default config;

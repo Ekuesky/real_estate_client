@@ -420,6 +420,7 @@ export interface ProfileData {
 	bio?: string;
 	country_of_origin: string;
 	city_of_origin: string;
+	average_rating: number;
 	occupation:
 		| "mason"
 		| "carpenter"

@@ -32,7 +32,7 @@ function AuthAvatar(props) {
 					<DropdownMenuTrigger asChild>
 						<Avatar className="border-pumpkin cursor-pointer border-2 mr-3">
 							<AvatarImage alt="auth image" src={profile.avatar} />
-							<AvatarFallback>
+							<AvatarFallback> //default avatar if not available
 								<CircleUser className="dark:text-platinum size-8" />
 							</AvatarFallback>
 						</Avatar>

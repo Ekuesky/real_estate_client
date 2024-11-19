@@ -14,6 +14,7 @@ export const statusOptions: OptionType[] = [
 	{ value: "in_progress", label: "In Progress" },
 ];
 
+
 export const priorityOptions: OptionType[] = [
 	{ value: "low", label: "Low" },
 	{ value: "medium", label: "Medium" },

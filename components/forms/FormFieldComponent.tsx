@@ -71,7 +71,7 @@ export function FormFieldComponent<TFieldValues extends FieldValues>({
 			// Render a Textarea component if isTextArea is true
 			return (
 				<Textarea
-					{...register(name, { required })} // Register the field with react-hook-form
+					{...register(name, { required:true })} // Register the field with react-hook-form
 					placeholder={placeholder} // Set the placeholder text
 					className={`dark:text-babyPowder ${className}`} // Apply custom and dark mode styling
 				/>
@@ -80,7 +80,7 @@ export function FormFieldComponent<TFieldValues extends FieldValues>({
 			// Render a PasswordInput component if isPassword is true
 			return (
 				<PasswordInput
-					{...register(name, { required })} // Register the field with react-hook-form
+					{...register(name, { required:true })} // Register the field with react-hook-form
 					placeholder={placeholder} // Set the placeholder text
 				/>
 			);
@@ -89,7 +89,7 @@ export function FormFieldComponent<TFieldValues extends FieldValues>({
 			return (
 				<Input
 					id={name} // Set the id for the input element
-					{...register(name, { required })} // Register the field with react-hook-form
+					{...register(name, { required:true })} // Register the field with react-hook-form
 					type={type} // Set the input type (e.g., "text", "email")
 					placeholder={placeholder} // Set the placeholder text
 					startIcon={startIcon} // Add a start icon if provided

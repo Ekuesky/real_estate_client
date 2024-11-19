@@ -8,6 +8,7 @@ type FormHeaderProps = {
   staticText?: string; // Texte statique optionnel
   linkText?: string;   // Texte du lien optionnel
   linkHref?: string;   // URL du lien optionnel
+  icon?: boolean;
 };
 
 // Définition du composant avec destructuration des props
@@ -16,12 +17,13 @@ export default function AuthFormHeader({
   staticText,
   linkHref,
   linkText,
+  icon = true,
 }: FormHeaderProps) {
   return (
     // Conteneur principal avec classe responsive
     <div className="px-4 sm:mx-auto sm:w-full sm:max-w-md sm:px-6 lg:px-8">
       {/* Icône de maison centrée */}
-      <HomeModernIcon className="mx-auto size-16 dark:text-lime-500" />
+      {icon && ( <HomeModernIcon className="mx-auto size-16 dark:text-lime-500" />) }
 
       {/* Titre avec style personnalisé */}
       <h2 className="text-baby_richBlack h2-bold font-robotoSlab dark:text-pumpkin mt-3 text-center">

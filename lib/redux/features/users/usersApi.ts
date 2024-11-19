@@ -40,7 +40,7 @@ export const usersApi = baseApi.injectEndpoints({
       providesTags: ["User"],
 		}),
 
-		updateUserProfile: builder.query<ProfileData, ProfileData>({
+		updateUserProfile: builder.mutation<ProfileData, ProfileData>({
 			query: (formData) => ({
         url: "/profiles/user/",
         method: "PATCH",

@@ -88,12 +88,12 @@ body{
 
     .electricIndigo-gradient{
         background: rgb(2,0,36);
-        background: linear-gradient(130deg, rgba(2,0,36,1) 0%, rgba(102,16,242,1) 100%, rgba(0,212,255,1) 100%);
+        background: linear-gradient(130deg, rgba(2,0,36,1) 0%, rgb(12, 8, 227) 100%, rgba(0,212,255,1) 100%);
     }
 
     .electricIndigo-gradient-r{
         background: rgb(2,0,36);
-        background: linear-gradient(200deg, rgba(2,0,36,1) 0%, rgba(102,16,242,1) 100%, rgba(0,212,255,1) 100%);
+        background: linear-gradient(200deg, rgba(2,0,36,1) 0%, rgb(35, 16, 242) 100%, rgba(0,212,255,1) 100%);
     }
 
 
@@ -104,7 +104,7 @@ body{
 
     .pumpkin-gradient{
         background: rgb(2,0,36);
-        background: linear-gradient(137deg, rgba(2,0,36,1) 0%, rgba(241,113,5,1) 100%, rgba(0,212,255,1) 100%);
+        background: linear-gradient(137deg, rgba(2,0,36,1) 0%, rgb(201, 135, 5) 100%, rgba(0,212,255,1) 100%);
     }
 
     .class-active {
