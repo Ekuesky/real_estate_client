@@ -9,7 +9,7 @@ interface ActivationParams {
   uid?: string;
   token?: string;
 }
-
+/* re-render StatusMessage only if any of its props changes */
 const StatusMessage = memo(({
   isLoading,
   isSuccess,
@@ -105,7 +105,8 @@ const StatusMessage = memo(({
 
   return null;
 });
-
+/* Sans cette ligne, le composant memoizé apparaîtrait comme "Anonymous"
+ dans les React DevTools car memo() wrappe le composant original */
 StatusMessage.displayName = 'StatusMessage';
 
 const ActivationPage = () => {
@@ -113,6 +114,8 @@ const ActivationPage = () => {
   const params = useParams() as ActivationParams;
   const [activateUser, { isLoading, isSuccess, isError, error }] = useActivateUserMutation();
 
+  /* La fonction validateParams est appelée lorsque les parametres url changent,
+   * et ne se re-exécute pas si les props ne changent pas */
   const validateParams = useCallback((): boolean => {
     if (!params.uid || !params.token) {
       toast.error("Invalid activation link");
@@ -122,6 +125,8 @@ const ActivationPage = () => {
     return true;
   }, [params.uid, params.token, router]);
 
+  /* La fonction handleActivation est appelée lorsque validateParams change,
+   * en d'autres termes les paramètres de l'url ou si activateUser change */
   const handleActivation = useCallback(async () => {
     if (!validateParams()) return;
 
@@ -136,10 +141,14 @@ const ActivationPage = () => {
     }
   }, [activateUser, params.uid, params.token, validateParams]);
 
+  /* La fonction useEffect est appelée lorsque le composant est monté,
+   * et lorsque handleActivation change */
   useEffect(() => {
     handleActivation();
   }, [handleActivation]);
 
+  /* La fonction useEffect est appelée lorsque isSuccess ou isError change,
+   * et lorsque error change */
   useEffect(() => {
     if (isSuccess) {
       toast.success("Account successfully activated!");

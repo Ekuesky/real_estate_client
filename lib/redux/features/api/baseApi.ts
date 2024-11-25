@@ -1,6 +1,6 @@
 // const baseQuery = fetchBaseQuery({
 // 	baseUrl: "/api/v1",
-// 	credentials: "include" /* Inclut les cookies dans les requêtes */
+// 	credentials: "include"
 // });
 //
 // export const baseApi = createApi({
@@ -8,6 +8,8 @@
 // 	baseQuery: baseQuery,
 // 	endpoints: (builder) => ({}),
 // });
+
+/* Modèle de code disponible sur https://redux-toolkit.js.org/rtk-query/usage/customizing-queries */
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setAuth, setLogout } from "@/lib/redux/features/auth/authSlice";
@@ -17,16 +19,16 @@ import {
  FetchBaseQueryError,
 } from "@reduxjs/toolkit/query";
 
-// Importation de Mutex pour gérer les requêtes concurrentes
+/* Importation de Mutex pour gérer les requêtes concurrentes */
 import { Mutex } from "async-mutex";
 
-// Création d'un mutex pour synchroniser les tentatives de réauthentification
+/* Création d'un mutex pour synchroniser les tentatives de réauthentification */
 const mutex = new Mutex();
 
-// Configuration de la requête de base avec l'URL de l'API et l'inclusion des credentials
+/* Configuration de la requête de base avec l'URL de l'API et l'inclusion des credentials */
 const baseQuery = fetchBaseQuery({
  baseUrl: "/api/v1",
- credentials: "include", // Permet d'inclure les cookies dans les requêtes
+ credentials: "include", /* Permet d'inclure les cookies dans les requêtes */
 });
 
 /**
@@ -62,28 +64,28 @@ const baseQueryWithReauth: BaseQueryFn< string | FetchArgs, unknown,
      api,
      extraOptions,
     );
-    // Si le rafraîchissement réussit
+    /* Si le rafraîchissement réussit */
     if (refreshResponse?.data) {
-     // Met à jour l'état d'authentification
+     /* Met à jour l'état d'authentification */
      api.dispatch(setAuth());
-     // Réessaie la requête initiale
+     /* Réessaie la requête initiale */
      response = await baseQuery(args, api, extraOptions);
     } else {
-     // Si le rafraîchissement échoue, déconnecte l'utilisateur
+     /* Si le rafraîchissement échoue, déconnecte l'utilisateur */
      api.dispatch(setLogout());
     }
    } finally {
-    // Libère le mutex dans tous les cas
+    /* Libère le mutex dans tous les cas */
     release();
    }
   } else {
-   // Si une réauthentification est déjà en cours, attend son aboutissement
+   /* Si une réauthentification est déjà en cours, attendre son aboutissement */
    await mutex.waitForUnlock();
-   // Réessaie la requête initiale
+   /* Réessaie la requête initiale */
    response = await baseQuery(args, api, extraOptions);
   }
  }
- // Retourne la réponse finale
+ /* Retourne la réponse finale */
  return response;
 };
 
@@ -94,11 +96,12 @@ const baseQueryWithReauth: BaseQueryFn< string | FetchArgs, unknown,
  * - Définit des types de tags pour le cache et la synchronisation
  * - Configure le rechargement automatique des données
  */
+
 export const baseApi = createApi({
- reducerPath: "api", // Chemin du reducer dans le store Redux
- baseQuery: baseQueryWithReauth, // Utilisation de l'intercepteur personnalisé
- tagTypes: ["User"], // Types de ressources pour le cache
- refetchOnFocus: true, // Rechargement des données quand l'application reprend le focus
- refetchOnMountOrArgChange: true, // Rechargement des données à la réinit ou changement d'arguments
+ reducerPath: "api", /* Chemin du reducer dans le store Redux */
+ baseQuery: baseQueryWithReauth, /* Utilisation de l'intercepteur personnalisé */
+ tagTypes: ["User"], /* Types de ressources pour le cache */
+ refetchOnFocus: true, /* Rechargement des données quand l'application reprend le focus */
+ refetchOnMountOrArgChange: true, /* Rechargement des données à la réinitialisation ou changement d'arguments */
  endpoints: (builder) => ({}),
 });

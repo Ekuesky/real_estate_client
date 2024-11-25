@@ -9,10 +9,12 @@ import Spinner from "@/components/shared/Spinner";
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const dispatch = useAppDispatch();
   const router = useRouter();
+  /* get auth state from the store*/
   const { isAuthenticated, isLoading } = useAppSelector((state) => state.auth);
 
   useEffect(() => {
     const handleAuthState = async () => {
+      /* check if there is a logged_in attribute in browser cookie and if its value is set to true*/
       const isLoggedIn = getCookie("logged_in") === "true";
       if (isLoggedIn) {
         dispatch(setAuth());

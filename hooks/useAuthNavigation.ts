@@ -15,6 +15,8 @@ export function useAuthNavigation(){
 
 	const handleLogout = async () => {
 		try {
+			/* Send logout request to backend and unwrap the Promise to handle success/error scenarios
+			.unwrap() allows direct access to the resolved value or throws an error if the request fails */
 			await logoutUser().unwrap()
 			dispatch(setLogout())
 			router.push("/login")
@@ -24,10 +26,10 @@ export function useAuthNavigation(){
 			 const errorMessage = extractErrorMessage(error)
 		   toast.error(errorMessage || "An error occurred")
 		}
-
   }
 
 	const filteredNavLinks = leftNavLinks.filter(navLink =>	{
+		/* For specific authenticated-only routes, only show if user is logged in */
 		if(
 			navLink.path === "/profile" ||
       navLink.path === "/tenants" ||
@@ -37,9 +39,11 @@ export function useAuthNavigation(){
       navLink.path === "/bookmark" ||
       navLink.path === "/add-post"
 		){
-			return isAuthenticated;
+			return isAuthenticated; /* Only show these routes if authenticated */
 		}
-		return true;
+		return true; /* All other routes are always visible */
 	})
+
+
 return { handleLogout, filteredNavLinks, isAuthenticated};
 }

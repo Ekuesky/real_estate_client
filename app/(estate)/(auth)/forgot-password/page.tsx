@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import { AuthFormHeader } from "@/components/forms/auth";
 import PasswordResetRequestForm from "@/components/forms/auth/PasswordResetRequestForm";
 
-// add metadata
+// add metadata for SEO purposes
 export const metadata: Metadata = {
 	title: "Ayiek real estate | Password reset",
-	description: "Welcome to the real estate application",
+	description: "Password reset request page",
 };
 
 function ForgotPassword() {

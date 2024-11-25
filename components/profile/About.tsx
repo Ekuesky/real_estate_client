@@ -80,7 +80,7 @@ function AboutContent() {
       <ProfileItem
        icon={<Star className="tab-icon" />}
        label="Average Rating"
-       value={(profile?.average_rating as string) || ""}
+       value={(profile?.average_rating) || ""}
       />
       <div className="prose max-w-none">
        <p>

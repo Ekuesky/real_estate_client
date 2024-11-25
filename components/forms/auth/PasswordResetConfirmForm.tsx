@@ -28,7 +28,7 @@ export default function PasswordResetConfirmForm() {
 		register,
 		handleSubmit,
 		reset,
-		formState: { errors },
+		formState: { errors } /* to capture errors */ ,
 	} = useForm<TPasswordResetConfirmSchema>({
 		mode: "all",
 		defaultValues: {

@@ -3,8 +3,8 @@ import PasswordResetConfirmForm from "@/components/forms/auth/PasswordResetConfi
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Alpha Apartments | Password Reset Request",
-	description: "Password request reset page",
+	title: "Real Estate Apartments | Password Reset Request",
+	description: "Password reset page",
 };
 
 export default function ForgotPassword() {

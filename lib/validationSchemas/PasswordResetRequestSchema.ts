@@ -7,3 +7,8 @@ export const PasswordResetRequestSchema = z.object({
 })
 
 export type TPasswordResetRequestSchema	 = z.infer<typeof PasswordResetRequestSchema>
+
+/* Équivalent à:
+type TPasswordResetRequestSchema = {
+  email: string
+} */

@@ -1,6 +1,7 @@
 // Importation des composants et dépendances nécessaires
 import { HomeModernIcon } from "@heroicons/react/24/solid";  // Icône de maison de Heroicons
 import Link from "next/link";  // Composant Link de Next.js pour la navigation
+import React from "react"
 
 // Définition du type pour les props du composant
 type FormHeaderProps = {
@@ -12,7 +13,7 @@ type FormHeaderProps = {
 };
 
 // Définition du composant avec destructuration des props
-export default function AuthFormHeader({
+function AuthFormHeader({
   title,
   staticText,
   linkHref,
@@ -50,3 +51,5 @@ export default function AuthFormHeader({
     </div>
   );
 }
+
+export default React.memo(AuthFormHeader)

@@ -1,6 +1,6 @@
 "use client"; // Indicates this is a Client Component in Next.js
 
-// Import necessary dependencies and components
+
 import { Button } from "@/components/ui/button";
 import { leftNavLinks } from "@/constants";
 import { useAuthNavigation } from "@/hooks";
@@ -26,7 +26,7 @@ export default function LeftNavbar() {
 						pathname === linkItem.path;
 
 					return (
-						// Render each navigation link
+						/* Render each navigation link */
 						<Link
 							href={linkItem.path}
 							key={linkItem.label}

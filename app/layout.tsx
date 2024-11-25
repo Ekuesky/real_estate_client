@@ -10,8 +10,8 @@ import PersistAuth from "@/utils/PersistAuth";
 
 
 export const metadata: Metadata = {
-    title: "real estate app",
-    description: "",
+    title: "Real estate app",
+    description: "welcome home",
 };
 
 export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {

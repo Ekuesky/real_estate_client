@@ -6,7 +6,7 @@ import ProtectedRoute from "@/components/shared/ProtectedRoute";
 
 function TenantsPageContent() {
 	const { data, isLoading, isSuccess, isError, Error } = useGetAllUsersQuery(
-		{},
+		{ /*page: 1, searchTerm: "tenant"}*/},
 	);
 	if (isLoading) {
 		return (

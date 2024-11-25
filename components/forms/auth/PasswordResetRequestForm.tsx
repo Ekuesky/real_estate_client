@@ -17,7 +17,7 @@ function PasswordResetRequestForm() {
 	const [resetPasswordRequest, {isLoading} ] = useResetPasswordRequestMutation()
 	const {register, handleSubmit, reset, formState:{errors} } = useForm<TPasswordResetRequestSchema>(
 		{
-      resolver: zodResolver(PasswordResetRequestSchema),
+      resolver: zodResolver(PasswordResetRequestSchema) /* using zod resoler to validate fields*/,
       mode: "all",
 			defaultValues: {
         email: "",
@@ -36,6 +36,8 @@ function PasswordResetRequestForm() {
 	}
 	return (
 		<main>
+			{/* Disable browser HTML5 default validation to avoid collision errors validation messages,
+			since we are already using zod for validation */}
 			<form noValidate onSubmit={handleSubmit(onSubmit)} className="flex w-full max-w-md flex-col gap-4">
 				<FormFieldComponent
 					label="Email Address"
