@@ -14,16 +14,21 @@ import {
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import TenantInfo from "@/components/cards/TenantInfo";
 import { Briefcase, CalendarDays, Map } from "lucide-react";
-import { formatDate } from "@/utils";
+import { capitalizeWord, formatDate } from "@/utils";
 import ProtectedRoute from "@/components/shared/ProtectedRoute";
 import { useAppSelector } from "@/lib/redux/hooks/typedHooks";
+import PaginationSection from "@/components/shared/PaginationSection";
 
 const TenantCardContent = () => {
 	const { theme } = useTheme();
+	const page = useAppSelector((state) => state.user.page)
 	const searchTerm = useAppSelector((state) => state.user.searchTerm);
 	const { data, isLoading, isError, error } = useGetAllUsersQuery({
-		searchTerm,
+		searchTerm, page
 	});
+
+	const totalCount = data?.profiles.count || 0;
+	const nbPages = Math.ceil(totalCount / 3);
 
 	/* if data currently loading*/
 	if (isLoading) {
@@ -49,9 +54,9 @@ const TenantCardContent = () => {
 	return (
 		<div>
 			<UsersSearch />
-			<h1 className="flex-center font-robotoSlab dark:text-pumpkin text-4xl sm:text-5xl">
-				All Tenants - ({data?.profiles.results.length})
-			</h1>
+			<h2 className="flex-center font-robotoSlab dark:text-pumpkin text-3xl sm:text-4xl">
+				All Tenants - ({data?.profiles.count})
+			</h2>
 			<div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
 				{/* S'il ya au moins une donnée */}
 				{data && data?.profiles.results.length > 0 ? (
@@ -91,7 +96,7 @@ const TenantCardContent = () => {
 									<TenantInfo
 										icon={Briefcase}
 										label="Occupation"
-										value={tenant.occupation}
+										value={capitalizeWord(tenant.occupation)}
 									/>
 									<TenantInfo
 										icon={CalendarDays}
@@ -119,6 +124,7 @@ const TenantCardContent = () => {
 					</div>
 				)}
 			</div>
+			<PaginationSection nbPages={nbPages}/>
 
 		</div>
 	);
