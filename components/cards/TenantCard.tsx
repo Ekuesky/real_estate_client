@@ -16,10 +16,12 @@ import TenantInfo from "@/components/cards/TenantInfo";
 import { Briefcase, CalendarDays, Map } from "lucide-react";
 import { formatDate } from "@/utils";
 import ProtectedRoute from "@/components/shared/ProtectedRoute";
+import { useAppSelector } from "@/lib/redux/hooks/typedHooks";
 
 const TenantCardContent = () => {
 	const { theme } = useTheme();
-	const { data, isLoading, isError, error } = useGetAllUsersQuery({});
+	const searchTerm =  useAppSelector((state)=>state.user.searchTerm)
+	const { data, isLoading, isError, error } = useGetAllUsersQuery({searchTerm});
 
 	/* if data currently loading*/
 	if (isLoading) {
