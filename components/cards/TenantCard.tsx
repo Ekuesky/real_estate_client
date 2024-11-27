@@ -20,8 +20,10 @@ import { useAppSelector } from "@/lib/redux/hooks/typedHooks";
 
 const TenantCardContent = () => {
 	const { theme } = useTheme();
-	const searchTerm =  useAppSelector((state)=>state.user.searchTerm)
-	const { data, isLoading, isError, error } = useGetAllUsersQuery({searchTerm});
+	const searchTerm = useAppSelector((state) => state.user.searchTerm);
+	const { data, isLoading, isError, error } = useGetAllUsersQuery({
+		searchTerm,
+	});
 
 	/* if data currently loading*/
 	if (isLoading) {
@@ -81,18 +83,43 @@ const TenantCardContent = () => {
 									</p>
 								</CardTitle>
 								<CardDescription className="mt-4 space-y-2 border-b-0">
-									<TenantInfo icon={Map} label="Country of origin" value={tenant.country_of_origin} />
-									<TenantInfo icon={Briefcase} label="Occupation" value={tenant.occupation} />
-									<TenantInfo icon={CalendarDays} label="Date Joined" value={formatDate(tenant.date_joined).toString()} />
+									<TenantInfo
+										icon={Map}
+										label="Country of origin"
+										value={tenant.country_of_origin}
+									/>
+									<TenantInfo
+										icon={Briefcase}
+										label="Occupation"
+										value={tenant.occupation}
+									/>
+									<TenantInfo
+										icon={CalendarDays}
+										label="Date Joined"
+										value={formatDate(
+											tenant.date_joined,
+										).toString()}
+									/>
 									{/*todo: complete with apartments informations*/}
 								</CardDescription>
 							</CardContent>
 						</Card>
 					))
 				) : (
-					<p className="">No tenant found</p>
+					<div className="w-full flex flex-col items-center justify-center space-y-4 p-8 bg-gray-50 dark:bg-gray-800 rounded-lg">
+						<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							strokeWidth="1.5"
+							className="text-gray-400 dark:text-gray-500">
+							<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+							<circle cx="12" cy="7" r="4" />
+						</svg>
+						<p className="text-lg text-gray-600 dark:text-gray-300 font-medium">
+							No tenants found
+						</p>
+					</div>
 				)}
 			</div>
+
 		</div>
 	);
 };
