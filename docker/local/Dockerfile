@@ -5,7 +5,7 @@ FROM docker.io/node:20.11-alpine3.18 as base
 # Étape de construction du nœud
 FROM base as node-build-stage
 
-# Installation de libc6-compat
+# Installation de libc6-compat, recommandé pour la version alpine de node
 RUN apk add --no-cache libc6-compat
 
 # Copie des fichiers de gestion des dépendances
