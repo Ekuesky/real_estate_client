@@ -1,14 +1,3 @@
-// const baseQuery = fetchBaseQuery({
-// 	baseUrl: "/api/v1",
-// 	credentials: "include"
-// });
-//
-// export const baseApi = createApi({
-// 	reducerPath: "api",
-// 	baseQuery: baseQuery,
-// 	endpoints: (builder) => ({}),
-// });
-
 /* Modèle de code disponible sur https://redux-toolkit.js.org/rtk-query/usage/customizing-queries */
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
@@ -100,7 +89,7 @@ const baseQueryWithReauth: BaseQueryFn< string | FetchArgs, unknown,
 export const baseApi = createApi({
  reducerPath: "api", /* Chemin du reducer dans le store Redux */
  baseQuery: baseQueryWithReauth, /* Utilisation de l'intercepteur personnalisé */
- tagTypes: ["User"], /* Types de ressources pour le cache */
+ tagTypes: ["User","Apartment"], /* Types de ressources pour le cache */
  refetchOnFocus: true, /* Rechargement des données quand l'application reprend le focus */
  refetchOnMountOrArgChange: true, /* Rechargement des données à la réinitialisation ou changement d'arguments */
  endpoints: (builder) => ({}),

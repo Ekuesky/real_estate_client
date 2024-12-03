@@ -35,6 +35,7 @@ const config : Config= {
 				eerieBlack: "#171D1C",
 				ballonWhite: "#dfe6f6",
 			},
+			borderRadius:{},
 
 			keyframes: {
 				"accordion-down": {

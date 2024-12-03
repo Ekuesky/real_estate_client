@@ -1,6 +1,3 @@
-// import LeftNavbar from "@/components/shared/navbar/LeftNavbar";
-// import Navbar from "@/components/shared/navbar/Navbar";
-// import RightNavbar from "@/components/shared/navbar/RightNavbar";
 import React from "react";
 import Navbar from "@/components/shared/navbar/Navbar";
 import LeftNavbar from "@/components/shared/navbar/LeftNavbar";

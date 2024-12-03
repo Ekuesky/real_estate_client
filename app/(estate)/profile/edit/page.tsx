@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import EditProfileForm from "@/components/profile/EditProfileForm";
 
 export const metadata: Metadata = {
-	title: "Alpha Apartments | Profile Edit",
+	title: "Real Estate | Profile Edit",
 	description: "Signed in users can edit their profile information",
 };
 

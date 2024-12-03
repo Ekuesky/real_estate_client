@@ -27,22 +27,22 @@ function ProfilePageContent() {
 						defaultValue="about"
 					>
 						<TabsList className="bg-baby_rich flex space-x-4">
-							<TabsTrigger value="about" className="h3-semibold tab">
+							<TabsTrigger value="about" className="h4-bold tab">
 								About
 							</TabsTrigger>
-							<TabsTrigger value="posts" className="h3-semibold tab">
+							<TabsTrigger value="posts" className="h4-bold tab">
 								Posts
 							</TabsTrigger>
-							<TabsTrigger value="my-issues" className="h3-semibold tab">
+							<TabsTrigger value="my-issues" className="h4-bold tab">
 								My Issues
 							</TabsTrigger>
-							<TabsTrigger value="my-reports" className="h3-semibold tab">
+							<TabsTrigger value="my-reports" className="h4-bold tab">
 								My Reports
 							</TabsTrigger>
-							<TabsTrigger value="assigned-issues" className="h3-semibold tab">
+							<TabsTrigger value="assigned-issues" className="h4-bold tab">
 								Assigned Issues
 							</TabsTrigger>
-							<TabsTrigger value="apartments" className="h3-semibold tab">
+							<TabsTrigger value="apartments" className="h4-bold tab">
 								My Apartments
 							</TabsTrigger>
 						</TabsList>
