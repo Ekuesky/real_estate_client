@@ -1,5 +1,6 @@
-import React from "react";
+ import React from "react";
 import type {Metadata} from "next";
+ import AvailableAparts from "@/components/apartments/AvailableAparts";
 
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 function Page(props) {
 	return (
 		<div>
-			<h1 className="dark:text-pumpkin text-6xl"> Welcome </h1>
+			<AvailableAparts/>
 		</div>
 	);
 }
