@@ -2,15 +2,23 @@
 import React from "react";
 import { useGetAvailableApartmentQuery } from "@/lib/redux/features/apartments/apartApi";
 import Spinner from "@/components/shared/Spinner";
-import { extractErrorMessage } from "@/utils";
 import { useTheme } from "next-themes";
 import { ApartmentCard } from "@/components/cards/ApartmentCard";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks/typedHooks";
+import { setPagination } from "@/lib/redux/features/apartments/apartSlice";
+import PaginationSection from "@/components/shared/PaginationSection";
 
 function AvailableAparts() {
-	const { data, isLoading, isSuccess, isError, error } =
-		useGetAvailableApartmentQuery();
-	const theme = useTheme();
+	const dispatch = useAppDispatch();
+	const {page, pageSize} = useAppSelector((state)=>state.apart)
+	const { data, isLoading, isSuccess, isError, error } = useGetAvailableApartmentQuery({page, pageSize});
 
+	const theme = useTheme();
+	const handlePageChange = (newPage:number) => {
+		dispatch(setPagination({page: newPage}));
+	}
+  const totalApartments = data?.apartments.count || 0;
+  const totalPages = Math.ceil(totalApartments / pageSize);
 	if (isLoading) {
 		return (
 			<div
@@ -49,8 +57,12 @@ function AvailableAparts() {
 					))
 					: null}
 			</div>
+			<PaginationSection
+        currentPage={page}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
 		</>
 	);
 }
-
 export default AvailableAparts;

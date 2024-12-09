@@ -16,19 +16,27 @@ import TenantInfo from "@/components/cards/TenantInfo";
 import { Briefcase, CalendarDays, Map } from "lucide-react";
 import { capitalizeWord, formatDate } from "@/utils";
 import ProtectedRoute from "@/components/shared/ProtectedRoute";
-import { useAppSelector } from "@/lib/redux/hooks/typedHooks";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks/typedHooks";
 import PaginationSection from "@/components/shared/PaginationSection";
+import { setCurrentPage } from "@/lib/redux/features/users/userSlice";
 
 const TenantCardContent = () => {
 	const { theme } = useTheme();
-	const page = useAppSelector((state) => state.user.page)
+	const dispatch = useAppDispatch();
+	const page = useAppSelector((state) => state.user.page);
+	const pageSize = useAppSelector((state) => state.user.pageSize);
+
 	const searchTerm = useAppSelector((state) => state.user.searchTerm);
+	console.log("Search Term:", searchTerm); // Added log
 	const { data, isLoading, isError, error } = useGetAllUsersQuery({
-		searchTerm, page
+		searchTerm:searchTerm||"", pageSize, page
 	});
 
+	const handlePageChange = (newPage:number) => {
+		dispatch(setCurrentPage({page: newPage}));
+	}
 	const totalCount = data?.profiles.count || 0;
-	const nbPages = Math.ceil(totalCount / 3);
+	const totalPages = Math.ceil(totalCount / pageSize);
 
 	/* if data currently loading*/
 	if (isLoading) {
@@ -124,7 +132,7 @@ const TenantCardContent = () => {
 					</div>
 				)}
 			</div>
-			<PaginationSection nbPages={nbPages}/>
+			<PaginationSection   currentPage={page} totalPages={totalPages} onPageChange={handlePageChange} />
 
 		</div>
 	);

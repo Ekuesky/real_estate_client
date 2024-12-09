@@ -18,10 +18,13 @@ export const usersApi = baseApi.injectEndpoints({
         if (params.page) {
           queryString.append("page", params.page.toString())
         }
+        if (params.pageSize) {
+          queryString.append("pageSize", params.pageSize)
+        }
         if (params.searchTerm) {
           queryString.append("search", params.searchTerm)
         }
-        return `/profiles/?${queryString.toString()}`;
+        return `profiles/?${queryString.toString()}`;
       },
       providesTags: ["User"]
     }),

@@ -5,14 +5,23 @@ import {
 	AssignApartmentData,
 	AssignApartmentResponse,
 	AvailableApartmentsResponse,
-	MessageResponse,
+	MessageResponse, QueryParams
 } from "@/types";
 
 export const apartApi = baseApi.injectEndpoints({
 	endpoints: (builder) => ({
-		getAvailableApartment: builder.query<AvailableApartmentsResponse, void>(
+		getAvailableApartment: builder.query<AvailableApartmentsResponse, QueryParams>(
 			{
-				query: () => "apartments/available/",
+				query: (params:{}) => {
+					const queryString = new URLSearchParams()
+					if (params?.page) {
+            queryString.append("page", params.page.toString())
+          }
+					if (params?.pageSize) {
+            queryString.append("pageSize", params.pageSize)
+          }
+					return `apartments/available/?${queryString.toString()}`
+				}
 			},
 		),
 

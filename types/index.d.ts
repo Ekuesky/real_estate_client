@@ -451,6 +451,7 @@ export interface MyAssignedIssuesResponse {
 // QUERY PARAMETERS INTERFACES
 export interface QueryParams {
     page?: number;
+    pageSize?: number;
     searchTerm?: string;
 }
 

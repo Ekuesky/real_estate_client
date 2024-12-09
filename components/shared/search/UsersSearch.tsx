@@ -8,10 +8,10 @@ import { setSearchTerm } from "@/lib/redux/features/users/userSlice";
 
 function UsersSearch() {
 	const dispatch = useAppDispatch();
-	const searchTerm = useAppSelector((state) => state.user.SearchTerm);
+	const searchTerm = useAppSelector((state) => state.user.searchTerm);
 
 	const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		dispatch(setSearchTerm(e.target.value));
+		dispatch(setSearchTerm({ searchTerm: e.target.value }));
 	};
 
 	return (
