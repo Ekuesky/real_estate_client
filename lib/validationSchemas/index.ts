@@ -15,3 +15,9 @@ export {type TUserProfileSchema} from "@/lib/validationSchemas/ProfileSchema"
 
 export {ApartmentAssignSchema} from "@/lib/validationSchemas/ApartmentAssignSchema"
 export {type TApartmentAssignSchema} from "@/lib/validationSchemas/ApartmentAssignSchema"
+
+export {IssueCreateSchema} from "@/lib/validationSchemas/IssueCreateSchema"
+export {type TIssueCreateSchema} from "@/lib/validationSchemas/IssueCreateSchema"
+
+export {IssueUpdateSchema} from "@/lib/validationSchemas/IssueUpdateSchema"
+export {type TIssueUpdateSchema} from "@/lib/validationSchemas/IssueUpdateSchema"
