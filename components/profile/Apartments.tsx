@@ -75,11 +75,11 @@ function ApartmentsContent() {
       <TabsContent value="apartments">
         <div className="flex cursor-pointer flex-row justify-center">
 					<p className="pt-5"> No apartment found</p>
-          <Link href="/apartments">
-            <Button className="h3-semibold electricIndigo-gradient text-babyPowder w-64 rounded-lg dark:text-white"> {/*Dark mode button text*/}
-              Add new apartment
-            </Button>
-          </Link>
+          {/*<Link href="/apartments">*/}
+          {/*  <Button className="h3-semibold electricIndigo-gradient text-babyPowder w-64 rounded-lg dark:text-white"> /!*Dark mode button text*!/*/}
+          {/*    Add new apartment*/}
+          {/*  </Button>*/}
+          {/*</Link>*/}
         </div>
       </TabsContent>
 		);

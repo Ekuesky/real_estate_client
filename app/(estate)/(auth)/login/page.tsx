@@ -5,7 +5,7 @@ import { AuthFormHeader } from "@/components/forms/auth";
 import OauthButtons from "@/components/shared/OauthButttons";
 import useRedirectIfAuthenticated from "@/hooks/useRedirectIfAuthenticated";
 
-export default function LoginPage(props) {
+export default function LoginPage() {
 	useRedirectIfAuthenticated();
 	return (
 <div>
