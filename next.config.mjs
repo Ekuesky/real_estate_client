@@ -9,6 +9,14 @@ const nextConfig = {
 		],
 	},
 	output: "standalone",
+
+	experimental: {
+    turbo: {
+      loaders: {
+        // Configure loaders for specific file extensions if needed
+      }
+    }
+  }
 };
 
 export default nextConfig;

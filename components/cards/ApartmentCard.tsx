@@ -21,7 +21,7 @@ export function ApartmentCard({
 	floor,
 }: ApartmentProps) {
 	return (
-		<Card key={id} className="w-full max-w-sm mx-auto">
+		<Card  className="w-full max-w-sm mx-auto">
 			<CardContent className="pt-6">
 				<div className="space-y-4">
 

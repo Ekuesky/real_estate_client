@@ -47,12 +47,15 @@ function AvailableAparts() {
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
 				{data && data?.apartments.results.length > 0 ?
 					(data?.apartments.results.map((apartment) => (
+
 							<ApartmentCard
+								key={apartment.id}
 								building={apartment.building}
 								created_at={apartment.created_at}
 								unit_number={apartment.unit_number}
 								id={apartment.id}
 								floor={apartment.floor} />
+
 						)
 					))
 					: null}

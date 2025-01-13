@@ -179,7 +179,7 @@ export interface ApartmentResponse {
     };
 }
 
-export interface AvailableApartmentsResponse {
+export interface ApartmentsResponse {
     count: number;
     next?: string;
     previous?: string;

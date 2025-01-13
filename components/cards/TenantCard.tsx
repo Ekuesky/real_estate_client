@@ -96,6 +96,7 @@ const TenantCardContent = () => {
 									</p>
 								</CardTitle>
 								<CardDescription className="mt-4 space-y-2 border-b-0">
+
 									<TenantInfo
 										icon={Map}
 										label="Country of origin"
@@ -114,6 +115,7 @@ const TenantCardContent = () => {
 										).toString()}
 									/>
 									{/*todo: complete with apartments informations*/}
+
 								</CardDescription>
 							</CardContent>
 						</Card>

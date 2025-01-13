@@ -28,7 +28,7 @@ function ProfilePageContent() {
    ]
  };
 
- if (isLoading) return <Spinner />;
+ if (isLoading) return <Spinner size="lg" />;
  if (isError) return <div>Error loading user data</div>;
 
  const userTabs = user?.occupation === "tenant"
